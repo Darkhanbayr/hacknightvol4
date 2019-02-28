@@ -26,10 +26,10 @@ jobs:
     docker:
       - image: google/cloud-sdk
     environment:
-      - PROJECT_NAME: "hacknightvol4"
-      - GOOGLE_PROJECT_ID: "united-tempest-228204"
+      - PROJECT_NAME: "HackHightv4"
+      - GOOGLE_PROJECT_ID: "hackhightv4"
       - GOOGLE_COMPUTE_ZONE: "asia-east1-a"
-      - GOOGLE_CLUSTER_NAME: "hacknightvol4-cluster"
+      - GOOGLE_CLUSTER_NAME: "standard-cluster-1"
     steps:
       - checkout
       - run: 
@@ -39,7 +39,7 @@ jobs:
             echo $GOOGLE_AUTH > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
             gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
-            gcloud --quiet container clusters create ${GOOGLE_CLUSTER_NAME} --zone ${GOOGLE_COMPUTE_ZONE} 
+            # gcloud --quiet container clusters create ${GOOGLE_CLUSTER_NAME} --zone ${GOOGLE_COMPUTE_ZONE} 
             gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
             gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
             gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
