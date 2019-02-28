@@ -28,7 +28,7 @@ jobs:
     environment:
       - PROJECT_NAME: "HackHightv4"
       - GOOGLE_PROJECT_ID: "hackhightv4"
-      - GOOGLE_COMPUTE_ZONE: "asia-east1-a"
+      - GOOGLE_COMPUTE_ZONE: "us-central1-a"
       - GOOGLE_CLUSTER_NAME: "standard-cluster-1"
     steps:
       - checkout
